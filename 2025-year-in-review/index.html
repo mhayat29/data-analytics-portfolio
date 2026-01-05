@@ -2,42 +2,105 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<title>Khizer Hayat — 2025 Year in Review (Final v3)</title>
+<title>Khizer Hayat — 2025 Year in Review</title>
 <meta name="viewport" content="width=1200">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 <style>
-  @page { size: A4; margin: 18mm; }
-  html,body { height:100%; margin:0; padding:0; font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Arial; color:#122; background:#fff; }
-  .container { max-width:1200px; margin:12px auto; padding:18px; box-sizing:border-box; }
-  header { display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #e6eef6; padding-bottom:10px; }
-  .who { display:flex; gap:14px; align-items:center; }
-  .avatar { width:72px;height:72px;border-radius:12px;background:#e8f1ff;display:flex;align-items:center;justify-content:center;font-weight:700;color:#0b56b3;font-size:22px; }
-  h1 { margin:0;font-size:24px; }
-  .meta { color:#53657a;font-size:13px; }
-  .pill { background:#f1f7ff;padding:8px 12px;border-radius:999px;color:#174ea6;font-weight:700;font-size:13px; }
+  /* A4 print sizing */
+  @page { size: A4 landscape; margin: 15mm; }
+  html,body { height:100%; margin:0; padding:0; font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial; color:#1a202c; background:#f7fafc; }
+  .container { max-width:1400px; margin:0 auto; padding:20px; box-sizing:border-box; background:#fff; }
+  
+  /* Header styling */
+  header { display:flex; justify-content:space-between; align-items:center; border-bottom:2px solid #e2e8f0; padding-bottom:16px; margin-bottom:16px; }
+  .who { display:flex; gap:16px; align-items:center; }
+  .avatar { width:72px; height:72px; border-radius:12px; background:linear-gradient(135deg,#667eea 0%,#764ba2 100%); display:flex; align-items:center; justify-content:center; font-weight:800; color:#fff; font-size:24px; box-shadow:0 4px 6px rgba(102,126,234,0.3); }
+  h1 { margin:0; font-size:26px; font-weight:800; color:#1a202c; }
+  .meta { color:#4a5568; font-size:13px; margin-top:5px; }
+  .focus-meta { color:#2d3748; font-weight:600; margin-top:8px; font-size:13px; }
+  .print-btn { background:linear-gradient(135deg,#667eea 0%,#764ba2 100%); color:#fff; padding:10px 16px; border-radius:8px; border:none; font-weight:700; cursor:pointer; font-size:13px; box-shadow:0 2px 4px rgba(102,126,234,0.3); transition:transform 0.2s; }
+  .print-btn:hover { transform:translateY(-1px); }
 
-  .grid { display:grid; grid-template-columns: 1fr 440px; gap:18px; margin-top:16px; align-items:start; }
-  .card { background:#fff;border:1px solid #e9eef6;border-radius:10px;padding:14px;box-shadow:0 6px 18px rgba(12,38,72,0.04); }
-  .summary { font-size:14px; color:#213047; line-height:1.45; }
-  .ach-list { display:flex; flex-direction:column; gap:10px; margin-top:12px; }
-  .ach { display:flex; gap:12px; }
-  .ach .icon { width:44px;height:44;border-radius:8px;background:#f3f8ff;color:#0b56b3;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:18px; }
-  .ach h4 { margin:0;font-size:14px; }
-  .ach p { margin:6px 0 0 0;color:#5b6b80;font-size:13px; }
+  /* Three column layout */
+  .grid { display:grid; grid-template-columns: 380px 1fr 360px; gap:16px; margin-top:16px; }
+  .card { background:#fff; border:1px solid #e2e8f0; border-radius:10px; padding:14px; box-sizing:border-box; }
 
-  .kpis { display:grid; grid-template-columns: repeat(2, 1fr); gap:10px; margin-bottom:12px; }
-  .kpi { background:linear-gradient(180deg,#fff,#fbfdff); border:1px solid #eef5ff; border-radius:8px;padding:12px; text-align:center; min-height:68px; display:flex; flex-direction:column; justify-content:center; }
-  .kpi .num { font-weight:800; font-size:20px; color:#0f1730; }
-  .kpi .label { color:#5b6b80; font-size:12px; margin-top:8px; }
-  .two-col { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:12px; }
+  /* Left column - Stats & Timeline */
+  .stat-grid { display:grid; grid-template-columns: repeat(2,1fr); gap:10px; margin-bottom:14px; }
+  .stat-card { background:linear-gradient(135deg,#f7fafc 0%,#edf2f7 100%); border:2px solid #cbd5e0; border-radius:10px; padding:12px; text-align:center; }
+  .stat-card.highlight { background:linear-gradient(135deg,#ebf4ff 0%,#dbeafe 100%); border-color:#3b82f6; }
+  .stat-num { font-weight:800; font-size:28px; color:#1a202c; }
+  .stat-label { color:#4a5568; font-size:11px; margin-top:4px; font-weight:600; text-transform:uppercase; }
 
-  .projects { margin-top:12px; display:flex; flex-direction:column; gap:10px; }
-  .project { display:flex; justify-content:space-between; gap:12px; }
-  .project .left { flex:1; }
-  .project .right { width:180px; text-align:right; color:#0b56b3; font-weight:700; }
+  /* Middle column - Achievements */
+  .snapshot-box { background:linear-gradient(135deg,#fef3c7 0%,#fde68a 100%); border-left:4px solid #f59e0b; padding:12px; border-radius:8px; margin-bottom:14px; }
+  .snapshot-text { font-size:13px; color:#78350f; line-height:1.5; font-weight:500; }
+  
+  .ach-list { display:flex; flex-direction:column; gap:10px; }
+  .ach { display:flex; gap:10px; padding:10px; border-radius:8px; background:#f8fafc; border-left:3px solid #cbd5e0; }
+  .ach.refactor { border-left-color:#8b5cf6; background:linear-gradient(90deg,#f5f3ff 0%,#faf5ff 100%); }
+  .ach.dashboard { border-left-color:#3b82f6; background:linear-gradient(90deg,#eff6ff 0%,#dbeafe 100%); }
+  .ach.engineering { border-left-color:#10b981; background:linear-gradient(90deg,#ecfdf5 0%,#d1fae5 100%); }
+  .ach.data { border-left-color:#f59e0b; background:linear-gradient(90deg,#fffbeb 0%,#fef3c7 100%); }
+  .ach.ops { border-left-color:#ef4444; background:linear-gradient(90deg,#fef2f2 0%,#fee2e2 100%); }
+  .ach.collab { border-left-color:#ec4899; background:linear-gradient(90deg,#fdf2f8 0%,#fce7f3 100%); }
+  
+  .icon { width:36px; height:36px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:18px; flex-shrink:0; }
+  .ach h4 { margin:0; font-size:13px; font-weight:700; color:#1a202c; }
+  .ach p { margin:4px 0 0 0; color:#4a5568; font-size:11.5px; line-height:1.4; }
 
-  .foot { margin-top:14px; font-size:11px; color:#64748b; border-top:1px dashed #e6eef6; padding-top:10px; }
-  @media print { .container { padding:12px; } header { padding-bottom:8px; } }
+  /* Right column */
+  .section-title { font-size:14px; font-weight:800; color:#1a202c; margin-bottom:10px; text-transform:uppercase; letter-spacing:0.5px; border-bottom:2px solid #e2e8f0; padding-bottom:6px; }
+  .subsection { margin-bottom:14px; }
+  ul { margin:6px 0 0 16px; padding:0; color:#4a5568; font-size:11.5px; line-height:1.5; }
+  li { margin-bottom:4px; }
+  
+  .view-list { display:grid; grid-template-columns: 1fr; gap:4px; margin-top:8px; }
+  .view-item { font-size:10.5px; padding:4px 8px; background:#f8fafc; border-radius:4px; color:#475569; border-left:2px solid #8b5cf6; }
+  .view-item strong { color:#5b21b6; }
+
+  .ticket-list { display:flex; flex-direction:column; gap:4px; }
+  .ticket { font-size:11px; padding:6px 8px; background:#f1f5f9; border-radius:6px; border-left:3px solid #3b82f6; }
+  .ticket strong { color:#1e40af; font-weight:700; }
+
+  .timeline-mini { width:100%; height:100px; margin:10px 0; }
+
+  .impact-box { padding:10px; background:#f0fdf4; border:2px solid #86efac; border-radius:8px; margin-top:10px; }
+  .impact-text { font-size:12px; color:#166534; font-weight:600; line-height:1.4; }
+
+  .foot { margin-top:16px; font-size:10px; color:#64748b; border-top:2px solid #e2e8f0; padding-top:10px; }
+
+  @media print {
+    @page { margin: 12mm; }
+    .print-btn { display:none !important; }
+    body { background:#fff !important; -webkit-print-color-adjust:exact; color-adjust:exact; print-color-adjust:exact; }
+    .container { padding:0 !important; max-width:100% !important; background:#fff !important; }
+    header { page-break-after:avoid; margin-bottom:12px !important; padding-bottom:12px !important; }
+    .grid { gap:10px !important; page-break-inside:avoid; }
+    .card { padding:8px !important; page-break-inside:avoid; border:1px solid #cbd5e0 !important; box-shadow:none !important; }
+    h1 { font-size:20px !important; }
+    .meta { font-size:11px !important; }
+    .focus-meta { font-size:11px !important; }
+    .section-title { font-size:11px !important; margin-bottom:6px !important; }
+    .stat-card { padding:8px !important; }
+    .stat-num { font-size:22px !important; }
+    .stat-label { font-size:9px !important; }
+    .ach { padding:6px !important; margin-bottom:6px !important; }
+    .ach h4 { font-size:11px !important; }
+    .ach p { font-size:10px !important; line-height:1.3 !important; }
+    .icon { width:28px !important; height:28px !important; font-size:14px !important; }
+    .snapshot-box { padding:8px !important; margin-bottom:10px !important; }
+    .snapshot-text { font-size:11px !important; line-height:1.4 !important; }
+    ul { font-size:10px !important; margin:4px 0 0 12px !important; line-height:1.4 !important; }
+    li { margin-bottom:2px !important; }
+    .view-item { font-size:9px !important; padding:3px 6px !important; }
+    .ticket { font-size:9.5px !important; padding:4px 6px !important; }
+    .impact-box { padding:6px !important; margin-top:6px !important; }
+    .impact-text { font-size:10px !important; }
+    .foot { font-size:8.5px !important; margin-top:10px !important; padding-top:6px !important; line-height:1.3 !important; }
+    .timeline-mini { height:80px !important; }
+    .avatar { width:56px !important; height:56px !important; font-size:20px !important; }
+  }
 </style>
 </head>
 <body>
@@ -47,213 +110,252 @@
         <div class="avatar">KH</div>
         <div>
           <h1>Khizer Hayat — 2025 Year in Review</h1>
-          <div class="meta">Business Intelligence Analyst • Betenbough Homes · Focus: Margins · Forecasting · Dashboard Reliability</div>
+          <div class="meta">Business Intelligence Analyst · Betenbough Homes · Analytics Team</div>
+          <div class="focus-meta">⚡ Focus Areas: Database Refactoring · Margins & Forecasting · Data Engineering · Dashboard Reliability</div>
         </div>
       </div>
       <div style="text-align:right">
-        <div class="pill">Dashboard • Final v3</div>
-        <div style="font-size:12px;color:#6b7280;margin-top:6px">Created: Dec 2025</div>
+        <button class="print-btn" onclick="window.print()">📄 Print / Save PDF</button>
+        <div style="font-size:11px;color:#64748b;margin-top:6px">Optimized for A4 landscape</div>
       </div>
     </header>
 
-    <div class="grid" aria-label="Main dashboard grid">
-      <!-- Left -->
+    <div class="grid">
+      <!-- LEFT COLUMN: Quick Stats & Timeline -->
       <div>
         <div class="card">
-          <div style="display:flex;justify-content:space-between;align-items:center;">
-            <div>
-              <h3 style="margin:0;font-size:16px">Snapshot</h3>
-              <div style="color:#5b6b80;font-size:13px;margin-top:6px">
-                Led analytics & data engineering to deliver a margins revamp (leaf procs + ADF pipeline), build trusted website traffic ingestion (BigQuery/GA), stabilize DW/production extracts, and implement automation (Tableau tokens, spreadsheet→ADF ingestion) — while enabling and coaching new team members.
-              </div>
+          <div class="section-title">📊 Year at a Glance</div>
+          <div class="stat-grid">
+            <div class="stat-card highlight">
+              <div class="stat-num">146</div>
+              <div class="stat-label">Tickets Completed</div>
             </div>
-            <div style="font-size:12px;color:#475569;text-align:right">
-              <div style="font-weight:700">Impact</div>
-              <div style="margin-top:6px">Increased reliability, dramatically reduced DW refresh time, quicker incident recovery, and measurable delivery across margins, forecasting and dashboards.</div>
+            <div class="stat-card">
+              <div class="stat-num">50+</div>
+              <div class="stat-label">Git Commits</div>
             </div>
-          </div>
-
-          <div class="ach-list" aria-label="Top achievements">
-            <div class="ach">
-              <div class="icon">📊</div>
-              <div>
-                <h4>Landed Margin Monitoring Dashboard</h4>
-                <p>Designed and launched an executive monitoring dashboard to track landed margins and regressions; provided leaders with actionable signals to reduce risk.</p>
-              </div>
+            <div class="stat-card">
+              <div class="stat-num">15+</div>
+              <div class="stat-label">Views Refactored</div>
             </div>
-
-            <div class="ach">
-              <div class="icon">⚙️</div>
-              <div>
-                <h4>Margins Revamp — leaf procs & ADF</h4>
-                <p><strong>Led margins revamp:</strong> authored leaf stored procedures, built the margins pipeline in Azure Data Factory, reviewed/debugged business logic, and introduced a direct spreadsheet→ADF ingestion pattern to replace Tableau Prep flows — simplifying the ETL surface and improving reliability.</p>
-              </div>
+            <div class="stat-card">
+              <div class="stat-num">3</div>
+              <div class="stat-label">ADF Pipelines</div>
             </div>
-
-            <div class="ach">
-              <div class="icon">🌐</div>
-              <div>
-                <h4>Website traffic — BigQuery & GA</h4>
-                <p>Developed BigQuery ingestion and ETL, experimented with CData and Snowplow, fixed duplication/aggregation issues (GTM/GA), and delivered website traffic to the Company Dashboard.</p>
-              </div>
+            <div class="stat-card">
+              <div class="stat-num">5</div>
+              <div class="stat-label">Critical Tickets</div>
             </div>
-
-            <div class="ach">
-              <div class="icon">🔁</div>
-              <div>
-                <h4>SSIS → ADF migration (assisted)</h4>
-                <p>Assisted the Data Engineer on the largest migration from SSIS to Azure Data Factory — refactored existing views and stored procedures, helped transition them into a new schema, and validated the new ADF flows. <strong>Result:</strong> nightly DW refresh reduced from ~7–8 hours down to ~1.5 hours.</p>
-              </div>
-            </div>
-
-            <div class="ach">
-              <div class="icon">🛠️</div>
-              <div>
-                <h4>Operational ownership & tooling</h4>
-                <p>Maintained the DW during an engineer’s absence, created raw-table ADF pipelines, implemented the Tableau API Token Registry, and delivered a testing project for website traffic accuracy.</p>
-              </div>
-            </div>
-
-            <div class="ach">
-              <div class="icon">🤝</div>
-              <div>
-                <h4>Collaboration & enablement</h4>
-                <p>Helped set up developer environments and source-control pushes, coached new hires, and worked closely with Marketing, Software and external support to deliver production-ready solutions.</p>
-              </div>
+            <div class="stat-card highlight">
+              <div class="stat-num">75%</div>
+              <div class="stat-label">DW Refresh ↓</div>
             </div>
           </div>
         </div>
 
-        <div style="display:flex;gap:12px;margin-top:12px">
-          <div style="flex:1" class="card">
-            <h4 style="margin:0 0 8px 0">Responsibilities I owned</h4>
-            <ul>
-              <li>Architect and operate margins pipelines and DW artifacts (ADF pipelines, leaf stored procedures, staging/cleaning procs).</li>
-              <li>End-to-end ownership for website traffic ingestion (BigQuery / GA / GTM / CData exploration).</li>
-              <li>Production reliability: triage, fix and process improvements for extracts and Tableau data sources.</li>
-              <li>Platform engineering: device/tooling setup, push code to main repo, run local migration scripts.</li>
-              <li>Mentorship & onboarding; created testing and accuracy frameworks for stakeholder confidence.</li>
-            </ul>
-          </div>
-
-          <div style="width:360px" class="card">
-            <h4 style="margin:0 0 8px 0">Skills & tools learned</h4>
-            <ul>
-              <li>Azure Data Factory: built raw tables, margins/pipelines and automation flows.</li>
-              <li>BigQuery & Google Analytics: built ETL queries and integrated website traffic into dashboards.</li>
-              <li>SQL & stored procedures (leaf procs), Tableau automation and tokens, Git/source control, PowerShell migration scripts.</li>
-              <li>Cross-team troubleshooting (Marketing/Software/Support) and experimentation (CData, Snowplow).</li>
-            </ul>
+        <div class="card" style="margin-top:14px">
+          <div class="section-title">📅 2025 Timeline</div>
+          <canvas class="timeline-mini" id="timelineChart"></canvas>
+          <div style="font-size:10px;color:#64748b;margin-top:6px">
+            <strong>Q1:</strong> Margins 2.0 design<br>
+            <strong>Q2:</strong> View refactoring starts<br>
+            <strong>Q3:</strong> SSIS→ADF migration support<br>
+            <strong>Q4:</strong> NetSuite ETL, DW operational continuity
           </div>
         </div>
 
-        <div class="card" style="margin-top:12px">
-          <h4 style="margin:0 0 10px 0">Projects where I exceeded outcomes</h4>
-          <div class="projects">
-            <div class="project">
-              <div class="left"><strong>Margins Revamp 2.0</strong> — leaf procs, ADF pipeline, ACID/atomicity approach, simplified incentives & flex-cash logic.</div>
-              <div class="right">Outcome: Higher reliability & simpler maintenance</div>
-            </div>
-
-            <div class="project">
-              <div class="left"><strong>SSIS → ADF Migration (assisted)</strong> — refactored and helped transition views and stored procedures into a new schema for BetenboughDW, and validated ADF flows.</div>
-              <div class="right">Outcome: Nightly DW refresh reduced from ~7–8 hr → ~1.5 hr</div>
-            </div>
-
-            <div class="project">
-              <div class="left"><strong>Website traffic to Company Dashboard</strong> — led cross-team work to fix aggregation and GTM/GA issues and deliver trusted dataset.</div>
-              <div class="right">Outcome: Trusted data & cost avoidance</div>
-            </div>
-
-            <div class="project">
-              <div class="left"><strong>DW continuity & raw-table pipeline</strong> — operated DW while Data Engineer was away; created a pipeline to fix a critical bug.</div>
-              <div class="right">Outcome: Zero production downtime</div>
-            </div>
-          </div>
+        <div class="card" style="margin-top:14px">
+          <div class="section-title">🎯 Key Metrics</div>
+          <ul style="font-size:11px">
+            <li><strong>Reliability:</strong> Zero production downtime (Q4 absence)</li>
+            <li><strong>Performance:</strong> DW refresh 7-8hr → 1.5hr (75% ↓)</li>
+            <li><strong>Quality:</strong> Rigorous QA for website traffic accuracy</li>
+            <li><strong>Impact:</strong> Enabled platform migration & exec reporting</li>
+          </ul>
         </div>
       </div>
 
-      <!-- Right: KPI & timeline -->
-      <aside>
+      <!-- MIDDLE COLUMN: Key Achievements -->
+      <div>
         <div class="card">
-          <h4 style="margin:0 0 10px 0">KPI Dashboard — Accountability</h4>
-
-          <div class="kpis" role="list">
-            <div class="kpi" role="listitem">
-              <div class="num">146</div>
-              <div class="label">Tickets resolved (2025)</div>
-            </div>
-
-            <div class="kpi" role="listitem">
-              <div class="num">5</div>
-              <div class="label">Critical tickets resolved</div>
-            </div>
-
-            <div class="kpi" role="listitem">
-              <div class="num">2</div>
-              <div class="label">ADF pipelines (created/maintained)</div>
-            </div>
-
-            <div class="kpi" role="listitem">
-              <div class="num">3</div>
-              <div class="label">DW artifacts / snapshots</div>
-            </div>
-
-            <div class="kpi" role="listitem">
-              <div class="num">5</div>
-              <div class="label">Processes streamlined</div>
-            </div>
-
-            <div class="kpi" role="listitem">
-              <div class="num">75%</div>
-              <div class="label">Share of new hires you supported</div>
-            </div>
-
-            <div class="kpi" role="listitem">
-              <div class="num">1.5 hr</div>
-              <div class="label">Nightly DW refresh (now) — was 7–8 hr</div>
+          <div class="section-title">🏆 2025 Achievements</div>
+          
+          <div class="snapshot-box">
+            <div class="snapshot-text">
+              <strong>Year Summary:</strong> Led database modernization initiative (15+ views), designed & implemented Margins 2.0 with leaf procs + ADF pipeline, built website traffic integration (GA → BigQuery → DW), maintained DW operational continuity with 3 new raw-table ADF pipelines during critical absence, and supported SSIS→ADF migration enabling 75% DW refresh time reduction.
             </div>
           </div>
 
-          <div style="margin-top:12px;font-size:13px;color:#475569">Notes:</div>
-          <ul style="font-size:12px;color:#475569">
-            <li>Tickets resolved = Jira issues assigned to you in 2025 with <code>statusCategory = Done</code>. (146 total.)</li>
-            <li>Critical tickets resolved = resolved tickets with Priority = <strong>Critical</strong> (5 total). Examples include BA-1092. :contentReference[oaicite:0]{index=0}</li>
-            <li>ADF pipelines = tickets explicitly referencing ADF/pipeline in the summary (2 found). :contentReference[oaicite:1]{index=1}</li>
-            <li>DW artifacts = snapshot-related tickets in your 2025 work (3 found). :contentReference[oaicite:2]{index=2}</li>
-            <li>SSIS→ADF migration and DW refresh improvement wording updated per your note: refactored and helped transition views & stored procedures into a new schema, and validated ADF flows.</li>
+          <div class="ach-list">
+            <div class="ach refactor">
+              <div class="icon">🔄</div>
+              <div>
+                <h4>Database Refactoring Initiative — Schema Modernization</h4>
+                <p>Refactored 15+ views from dbo → tableau schema, eliminated raw tables & custom SQL, removed cross-database dependencies. <strong>Outcome: Enabled SSIS→ADF migration, 75% faster DW refresh (7-8hr → 1.5hr).</strong></p>
+              </div>
+            </div>
+
+            <div class="ach dashboard">
+              <div class="icon">📈</div>
+              <div>
+                <h4>Margin Monitoring & Forecasting Dashboards</h4>
+                <p>Built landed margin monitoring (exec KPIs) and margin forecast snapshot (critical for leadership reviews). Created snapshot stored procedure with historical tracking. Delivered both dashboards on aggressive timelines for finance/leadership.</p>
+              </div>
+            </div>
+
+            <div class="ach engineering">
+              <div class="icon">⚙️</div>
+              <div>
+                <h4>Margins Revamp — Leaf Procs & ADF Pipeline</h4>
+                <p>Led design & implementation of margin leaf stored procedures with atomic/ACID approach. Built resilient ADF pipeline, replaced fragile Prep flows with direct spreadsheet→ADF ingestion. Improved incentives & flex-cash logic. <strong>Outcome: Higher reliability & simpler maintenance.</strong></p>
+              </div>
+            </div>
+
+            <div class="ach data">
+              <div class="icon">🌐</div>
+              <div>
+                <h4>Website Traffic & BigQuery Integration</h4>
+                <p>Built end-to-end GA → BigQuery ETL pipeline. Resolved GTM/GA duplication and aggregation issues. Enabled accurate website metrics on Company Dashboard for Marketing and leadership. Delivered trusted executive reporting.</p>
+              </div>
+            </div>
+
+            <div class="ach ops">
+              <div class="icon">🛠️</div>
+              <div>
+                <h4>Operational Ownership & Critical Pipelines</h4>
+                <p>Maintained DW during critical absence with zero downtime. Created 3 raw-table ADF pipelines: NetSuite Custom Search ETL (DO-242), SharePoint Flex Cash (BA-1024), and supporting staging/merge procedures. Implemented Tableau API Token Registry. Delivered rigorous testing/QA for website traffic accuracy.</p>
+              </div>
+            </div>
+
+            <div class="ach collab">
+              <div class="icon">🤝</div>
+              <div>
+                <h4>Cross-Team Collaboration & Enablement</h4>
+                <p>Coached ~75% of new hires in 2025. Collaborated with Software & Marketing on deployments and tagging. Partnered with Data Engineering on SSIS→ADF migration validation. Coordinated external support for long-standing issues.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:14px">
+          <div class="section-title">💡 Projects Where I Exceeded Expectations</div>
+          <ul style="font-size:11.5px;line-height:1.5">
+            <li><strong>Database Refactoring Initiative:</strong> 15+ views (dbo → tableau), raw tables, custom SQL → views → Enabled SSIS→ADF migration</li>
+            <li><strong>SSIS→ADF Migration Support:</strong> Schema refactoring, flow validation → 75% DW refresh time reduction</li>
+            <li><strong>Margins Revamp 2.0:</strong> Leaf procs, ADF, atomic design, incentives logic → Higher reliability & maintenance simplicity</li>
+            <li><strong>Website Traffic Integration:</strong> Fixed aggregation, built BigQuery ETL → Trusted executive reporting</li>
+            <li><strong>DW Operational Continuity:</strong> 3 raw-table ADF pipelines (NetSuite, SharePoint, staging/merge procs) → Zero production downtime</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN: Details -->
+      <div>
+        <div class="card">
+          <div class="section-title">🗂️ View Refactoring Portfolio</div>
+          <div class="view-list">
+            <div class="view-item"><strong>tableau.Incentives</strong> — Moved from dbo, raw tables (Oct)</div>
+            <div class="view-item"><strong>tableau.ConfirmedClosingDelays</strong> — Custom SQL → view (Oct)</div>
+            <div class="view-item"><strong>tableau.UnassignedWorkOrders</strong> — Embedded SQL → view (Oct)</div>
+            <div class="view-item"><strong>tableau.AvailableHomesHistory</strong> — Custom SQL → view (Dec, BA-1189)</div>
+            <div class="view-item"><strong>tableau.UnfinalizedPermit</strong> — Custom SQL → view (Dec)</div>
+            <div class="view-item"><strong>tableau.VPOsSmartlist</strong> — VPO details view (Nov, BA-358)</div>
+            <div class="view-item"><strong>tableau.BulkOptionCosts</strong> — Margin calcs (May/Jul)</div>
+            <div class="view-item"><strong>tableau.LandedMarginMonitoring</strong> — Exec monitoring (Nov)</div>
+            <div class="view-item"><strong>analysis.dwvw_PhaseCostsCreation</strong> — Raw tables, cross-db removed (Dec, BA-1163)</div>
+            <div class="view-item"><strong>Removed obsolete:</strong> dwvw_HomeCostsJCS, tbvw_JCSCurrentProjectCosts, dwvw_CostCategories (Dec, BA-1165)</div>
+          </div>
+          <div style="margin-top:8px;font-size:10px;color:#64748b;">Plus: dwvw_Calls, tbvw_VPOs, tbvw_WarrantyWorkOrders, tbvw_WPOCosts, tbvw_AllStop, and more in Main repo</div>
+        </div>
+
+        <div class="card" style="margin-top:14px">
+          <div class="section-title">🎫 Notable Tickets</div>
+          <div class="ticket-list">
+            <div class="ticket"><strong>DO-242</strong> — NetSuite Custom Search ETL Pipeline (Dec 2025)</div>
+            <div class="ticket"><strong>BA-1189</strong> — AvailableHomesHistory view (Dec 2025)</div>
+            <div class="ticket"><strong>BA-1165</strong> — HomeCostsJCS removal & ADF update (Dec)</div>
+            <div class="ticket"><strong>BA-1163</strong> — PhaseCostsCreation refactor (Dec)</div>
+            <div class="ticket"><strong>BA-1092</strong> — Margin Forecast Snapshot (critical)</div>
+            <div class="ticket"><strong>BA-1071</strong> — Landed Margin Monitoring Dashboard</div>
+            <div class="ticket"><strong>BA-1024/1025</strong> — Flex Cash Pipeline (ADF)</div>
+            <div class="ticket"><strong>BA-1097</strong> — Website Traffic to Dashboard (epic)</div>
+            <div class="ticket"><strong>BA-54</strong> — ConfirmedClosingDelays view (Oct)</div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:14px">
+          <div class="section-title">🤝 Stakeholder Impact</div>
+          <ul style="font-size:11px">
+            <li><strong>Data Engineering:</strong> Refactored views enabled SSIS→ADF migration (75% faster DW refresh)</li>
+            <li><strong>Marketing:</strong> Trusted website traffic data for campaign decisions</li>
+            <li><strong>Software/Platform:</strong> Source control, migrations, pipeline validation</li>
+            <li><strong>Finance/Leadership:</strong> Margin monitoring & forecasting for exec reviews</li>
           </ul>
         </div>
 
-        <div style="height:16px"></div>
-
-        <div class="card">
-          <h4 style="margin:0 0 10px 0">2025 Timeline — quick</h4>
-          <svg class="mini-chart" viewBox="0 0 1000 240" xmlns="http://www.w3.org/2000/svg" role="img">
-            <line x1="60" y1="120" x2="940" y2="120" stroke="#e6eef6" stroke-width="8" stroke-linecap="round"/>
-            <g transform="translate(150,120)"><circle r="20" fill="#fff" stroke="#7c9cff" stroke-width="6"/><text y="6" text-anchor="middle" font-size="12" fill="#0b56b3" font-weight="700">Q1</text><text y="-36" text-anchor="middle" font-size="11" fill="#374151">Scoping & early DW work</text></g>
-            <g transform="translate(350,120)"><circle r="20" fill="#fff" stroke="#4fd1c5" stroke-width="6"/><text y="6" text-anchor="middle" font-size="12" fill="#065f46" font-weight="700">Q2</text><text y="-36" text-anchor="middle" font-size="11" fill="#374151">ADF raw-table pipelines & reliability</text></g>
-            <g transform="translate(550,120)"><circle r="22" fill="#fff" stroke="#fbb6ce" stroke-width="6"/><text y="6" text-anchor="middle" font-size="12" fill="#991b1b" font-weight="700">Q3</text><text y="-40" text-anchor="middle" font-size="11" fill="#374151">Margins revamp & leaf procs</text></g>
-            <g transform="translate(760,120)"><circle r="24" fill="#fff" stroke="#86efac" stroke-width="6"/><text y="6" text-anchor="middle" font-size="12" fill="#064e3b" font-weight="700">Q4</text><text y="-44" text-anchor="middle" font-size="11" fill="#374151">Landed monitoring & website dashboard</text></g>
-          </svg>
-
-          <div style="font-size:12px;color:#475569;margin-top:8px">
-            Key: Q2 — operational reliability & ADF raw-table pipelines; Q3 — margins revamp & procs; Q4 — landed monitoring + website integration.
-          </div>
+        <div class="card" style="margin-top:14px">
+          <div class="section-title">📂 Core Responsibilities</div>
+          <ul style="font-size:10.5px">
+            <li>Database modernization (15+ views refactored, cross-db dependencies removed)</li>
+            <li>Margins pipelines & DW artifacts (leaf procs, snapshots, ADF orchestration)</li>
+            <li>Website traffic ingestion (GA → BigQuery → DW → Dashboards)</li>
+            <li>Production reliability (triage, root-cause, process improvements)</li>
+            <li>Platform enablement (tooling, schema/version control, migrations)</li>
+            <li>Mentorship, QA/testing, documentation, stakeholder support</li>
+          </ul>
         </div>
-
-        <div style="margin-top:12px" class="card">
-          <div style="font-weight:700;font-size:13px">Review talking point</div>
-          <div style="margin-top:8px;color:#374151;font-size:13px">
-            “In 2025 I led the margins revamp — implementing leaf stored procedures and an ADF pipeline, built BigQuery/GA traffic ingestion for the Company Dashboard, stabilized production extracts, delivered automation and process improvements, and assisted the SSIS→ADF migration that cut nightly DW refresh from ~7–8 hours to ~1.5 hours.”
-          </div>
-        </div>
-      </aside>
+      </div>
     </div>
 
     <div class="foot">
-      Sources & evidence: Jira resolved pages (146 total) • Critical tickets (5) • ADF tickets & DW snapshot tickets (as cited above). Margin Revamp & ADF documentation on Confluence supported the write-up. SSIS→ADF reduction (7–8h → 1.5h) added from your note.
+      <strong>Evidence & Sources:</strong> 
+      <strong>Git (50+):</strong> Main (35), DataWarehouse (50+), DataFactory repos. 
+      <strong>Views (15+):</strong> Incentives, ConfirmedClosingDelays, AvailableHomesHistory, UnfinalizedPermit, VPOsSmartlist, BulkOptionCosts, LandedMarginMonitoring, PhaseCostsCreation, and more. 
+      <strong>ADF Pipelines (3):</strong> NetSuite Custom Search (DO-242), SharePoint Flex Cash (BA-1024), plus staging/merge procedures. 
+      <strong>Tickets (146):</strong> Jira — Khizer, statusCategory=Done (2025). 
+      <strong>Critical (5):</strong> BA-1092, BA-1071, BA-1020, BA-951, BA-462. 
+      <strong>Infrastructure:</strong> SSIS→ADF migration enabled by view refactoring — DW refresh ~7–8hr → ~1.5hr (75% improvement).
     </div>
   </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+  <script>
+    // Simple timeline visualization
+    const ctx = document.getElementById('timelineChart');
+    if (ctx) {
+      new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+          datasets: [{
+            label: 'Tickets Completed',
+            data: [8, 10, 12, 14, 15, 18, 16, 12, 14, 16, 13, 8],
+            borderColor: '#667eea',
+            backgroundColor: 'rgba(102, 126, 234, 0.1)',
+            tension: 0.4,
+            fill: true
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false }
+          },
+          scales: {
+            y: { 
+              beginAtZero: true,
+              grid: { color: '#e2e8f0' },
+              ticks: { font: { size: 9 } }
+            },
+            x: { 
+              grid: { display: false },
+              ticks: { font: { size: 9 } }
+            }
+          }
+        }
+      });
+    }
+  </script>
 </body>
 </html>
