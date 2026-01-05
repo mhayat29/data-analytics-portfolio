@@ -121,56 +121,63 @@
     </header>
 
     <div class="grid">
-      <!-- LEFT COLUMN: Quick Stats & Timeline -->
+      <!-- LEFT COLUMN: Stats & Timeline -->
       <div>
         <div class="card">
-          <div class="section-title">📊 Year at a Glance</div>
+          <div class="section-title">📊 2025 By The Numbers</div>
           <div class="stat-grid">
             <div class="stat-card highlight">
-              <div class="stat-num">146</div>
-              <div class="stat-label">Tickets Completed</div>
-            </div>
-            <div class="stat-card">
               <div class="stat-num">50+</div>
               <div class="stat-label">Git Commits</div>
             </div>
-            <div class="stat-card">
+            <div class="stat-card highlight">
               <div class="stat-num">15+</div>
               <div class="stat-label">Views Refactored</div>
             </div>
             <div class="stat-card">
+              <div class="stat-num">146</div>
+              <div class="stat-label">Tickets Resolved</div>
+            </div>
+            <div class="stat-card highlight">
               <div class="stat-num">3</div>
               <div class="stat-label">ADF Pipelines</div>
             </div>
-            <div class="stat-card">
-              <div class="stat-num">5</div>
-              <div class="stat-label">Critical Tickets</div>
-            </div>
             <div class="stat-card highlight">
               <div class="stat-num">75%</div>
-              <div class="stat-label">DW Refresh ↓</div>
+              <div class="stat-label">DW Time Reduction</div>
+            </div>
+            <div class="stat-card highlight">
+              <div class="stat-num">1.5hr</div>
+              <div class="stat-label">DW Refresh Now</div>
+            </div>
+          </div>
+          
+          <div class="impact-box">
+            <div class="impact-text">
+              <strong>🎯 Key Impact:</strong> Database refactoring work directly enabled SSIS→ADF migration, cutting nightly DW refresh from ~7–8 hours to ~1.5 hours — a transformational infrastructure improvement.
             </div>
           </div>
         </div>
 
         <div class="card" style="margin-top:14px">
           <div class="section-title">📅 2025 Timeline</div>
-          <canvas class="timeline-mini" id="timelineChart"></canvas>
-          <div style="font-size:10px;color:#64748b;margin-top:6px">
-            <strong>Q1:</strong> Margins 2.0 design<br>
-            <strong>Q2:</strong> View refactoring starts<br>
-            <strong>Q3:</strong> SSIS→ADF migration support<br>
-            <strong>Q4:</strong> NetSuite ETL, DW operational continuity
-          </div>
+          <svg class="timeline-mini" viewBox="0 0 320 120" xmlns="http://www.w3.org/2000/svg">
+            <line x1="20" y1="60" x2="300" y2="60" stroke="#cbd5e0" stroke-width="4" stroke-linecap="round"/>
+            <g transform="translate(50,60)"><circle r="12" fill="#fff" stroke="#667eea" stroke-width="4"/><text y="5" text-anchor="middle" font-size="10" fill="#667eea" font-weight="700">Q1</text><text y="-24" text-anchor="middle" font-size="9" fill="#1a202c" font-weight="600">WPO, Warranty</text><text y="-12" text-anchor="middle" font-size="8" fill="#64748b">views created</text></g>
+            <g transform="translate(120,60)"><circle r="12" fill="#fff" stroke="#10b981" stroke-width="4"/><text y="5" text-anchor="middle" font-size="10" fill="#10b981" font-weight="700">Q2</text><text y="-24" text-anchor="middle" font-size="9" fill="#1a202c" font-weight="600">BulkOption</text><text y="-12" text-anchor="middle" font-size="8" fill="#64748b">Title migration</text></g>
+            <g transform="translate(190,60)"><circle r="13" fill="#fff" stroke="#f59e0b" stroke-width="4"/><text y="5" text-anchor="middle" font-size="10" fill="#f59e0b" font-weight="700">Q3</text><text y="-24" text-anchor="middle" font-size="9" fill="#1a202c" font-weight="600">Margins</text><text y="-12" text-anchor="middle" font-size="8" fill="#64748b">Incentives leaf</text></g>
+            <g transform="translate(260,60)"><circle r="14" fill="#fff" stroke="#8b5cf6" stroke-width="4"/><text y="5" text-anchor="middle" font-size="10" fill="#8b5cf6" font-weight="700">Q4</text><text y="-24" text-anchor="middle" font-size="9" fill="#1a202c" font-weight="600">Available</text><text y="-12" text-anchor="middle" font-size="8" fill="#64748b">schema cleanup</text></g>
+          </svg>
+          <div style="font-size:11px;color:#64748b;margin-top:4px">Consistent refactoring & schema work throughout 2025</div>
         </div>
 
         <div class="card" style="margin-top:14px">
-          <div class="section-title">🎯 Key Metrics</div>
-          <ul style="font-size:11px">
-            <li><strong>Reliability:</strong> Zero production downtime (Q4 absence)</li>
-            <li><strong>Performance:</strong> DW refresh 7-8hr → 1.5hr (75% ↓)</li>
-            <li><strong>Quality:</strong> Rigorous QA for website traffic accuracy</li>
-            <li><strong>Impact:</strong> Enabled platform migration & exec reporting</li>
+          <div class="section-title">🔧 Technical Skills</div>
+          <ul style="font-size:11.5px">
+            <li><strong>Database:</strong> SQL, Views, Stored Procedures, Schema Migration, DW Modeling</li>
+            <li><strong>ETL/Orchestration:</strong> Azure Data Factory, SSIS, BigQuery, GA/GTM</li>
+            <li><strong>BI/Analytics:</strong> Tableau, DAX, Dashboard Design, API Tokens</li>
+            <li><strong>DevOps:</strong> Git, Source Control, PowerShell, Testing/QA</li>
           </ul>
         </div>
       </div>
@@ -178,28 +185,27 @@
       <!-- MIDDLE COLUMN: Key Achievements -->
       <div>
         <div class="card">
-          <div class="section-title">🏆 2025 Achievements</div>
-          
           <div class="snapshot-box">
             <div class="snapshot-text">
-              <strong>Year Summary:</strong> Led database modernization initiative (15+ views), designed & implemented Margins 2.0 with leaf procs + ADF pipeline, built website traffic integration (GA → BigQuery → DW), maintained DW operational continuity with 3 new raw-table ADF pipelines during critical absence, and supported SSIS→ADF migration enabling 75% DW refresh time reduction.
+              <strong>2025 Summary:</strong> Delivered high-impact database modernization, refactoring 15+ views to eliminate cross-database dependencies and enable critical infrastructure improvements. Combined analytics expertise with data engineering to build reliable margin pipelines, executive dashboards, and website traffic ingestion — while maintaining operational excellence and enabling team growth.
             </div>
           </div>
 
+          <div class="section-title">🏆 Major Achievements</div>
           <div class="ach-list">
             <div class="ach refactor">
               <div class="icon">🔄</div>
               <div>
-                <h4>Database Refactoring Initiative — Schema Modernization</h4>
-                <p>Refactored 15+ views from dbo → tableau schema, eliminated raw tables & custom SQL, removed cross-database dependencies. <strong>Outcome: Enabled SSIS→ADF migration, 75% faster DW refresh (7-8hr → 1.5hr).</strong></p>
+                <h4>Database Refactoring & Schema Migration (⭐ PRIMARY)</h4>
+                <p>Refactored 15+ views from dbo to tableau schema using raw tables, eliminating cross-database dependencies (Betenbough → BetenboughDW). This foundational work directly enabled the SSIS→ADF migration that cut DW refresh time by 75% (~7–8hr → ~1.5hr). Converted multiple embedded custom SQL queries into maintainable views: AvailableHomesHistory, ConfirmedClosingDelays, UnassignedWorkOrders, UnfinalizedPermit. <strong>Impact: Transformational infrastructure improvement.</strong></p>
               </div>
             </div>
 
             <div class="ach dashboard">
-              <div class="icon">📈</div>
+              <div class="icon">📊</div>
               <div>
-                <h4>Margin Monitoring & Forecasting Dashboards</h4>
-                <p>Built landed margin monitoring (exec KPIs) and margin forecast snapshot (critical for leadership reviews). Created snapshot stored procedure with historical tracking. Delivered both dashboards on aggressive timelines for finance/leadership.</p>
+                <h4>Landed Margin Monitoring Dashboard</h4>
+                <p>Built executive-grade monitoring surface detecting margin regressions early. Reduced time-to-detect for business owners, enabling proactive decision-making. Used by Finance & Leadership for planning.</p>
               </div>
             </div>
 
@@ -317,45 +323,5 @@
       <strong>Infrastructure:</strong> SSIS→ADF migration enabled by view refactoring — DW refresh ~7–8hr → ~1.5hr (75% improvement).
     </div>
   </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
-  <script>
-    // Simple timeline visualization
-    const ctx = document.getElementById('timelineChart');
-    if (ctx) {
-      new Chart(ctx, {
-        type: 'line',
-        data: {
-          labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-          datasets: [{
-            label: 'Tickets Completed',
-            data: [8, 10, 12, 14, 15, 18, 16, 12, 14, 16, 13, 8],
-            borderColor: '#667eea',
-            backgroundColor: 'rgba(102, 126, 234, 0.1)',
-            tension: 0.4,
-            fill: true
-          }]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: { display: false }
-          },
-          scales: {
-            y: { 
-              beginAtZero: true,
-              grid: { color: '#e2e8f0' },
-              ticks: { font: { size: 9 } }
-            },
-            x: { 
-              grid: { display: false },
-              ticks: { font: { size: 9 } }
-            }
-          }
-        }
-      });
-    }
-  </script>
 </body>
 </html>
